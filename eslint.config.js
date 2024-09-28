@@ -8,6 +8,7 @@ import tseslint from 'typescript-eslint';
 import react from 'eslint-plugin-react';
 import prettier from 'eslint-plugin-prettier';
 import simpleImportSort from 'eslint-plugin-simple-import-sort';
+import pluginQuery from '@tanstack/eslint-plugin-query';
 
 export default tseslint.config(
   { ignores: ['dist', 'src/*.d.ts'] },
@@ -15,6 +16,7 @@ export default tseslint.config(
     extends: [
       eslint.configs.recommended,
       ...tseslint.configs.recommendedTypeChecked,
+      ...pluginQuery.configs['flat/recommended'],
     ],
     languageOptions: {
       ecmaVersion: 2020,
@@ -36,11 +38,13 @@ export default tseslint.config(
       'react-refresh': reactRefresh,
       prettier,
       'simple-import-sort': simpleImportSort,
+      '@tanstack/query': pluginQuery,
     },
     rules: {
       ...react.configs.recommended.rules,
       ...react.configs['jsx-runtime'].rules,
       ...reactHooks.configs.recommended.rules,
+      ...pluginQuery.configs.recommended.rules,
       '@typescript-eslint/consistent-type-imports': [
         'error',
         { fixStyle: 'inline-type-imports' },
