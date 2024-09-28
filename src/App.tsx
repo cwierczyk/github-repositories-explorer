@@ -1,16 +1,18 @@
 import { LanguageButton, ThemeButton } from '@/components';
-import { ThemeProvider } from '@/providers';
+import { ReactQueryProvider, ThemeProvider } from '@/providers';
 
 import '@/i18n';
 
 function App() {
   return (
     <ThemeProvider>
-      <>
-        <h1>App</h1>
-        <ThemeButton />
-        <LanguageButton />
-      </>
+      <ReactQueryProvider>
+        <>
+          <h1>App</h1>
+          <ThemeButton />
+          <LanguageButton />
+        </>
+      </ReactQueryProvider>
     </ThemeProvider>
   );
 }
