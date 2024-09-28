@@ -10,7 +10,7 @@ import prettier from 'eslint-plugin-prettier';
 import simpleImportSort from 'eslint-plugin-simple-import-sort';
 
 export default tseslint.config(
-  { ignores: ['dist'] },
+  { ignores: ['dist', 'src/*.d.ts'] },
   {
     extends: [
       eslint.configs.recommended,
@@ -53,6 +53,7 @@ export default tseslint.config(
         'error',
         { props: 'never', children: 'never', propElementValues: 'always' },
       ],
+      'react/prop-types': 'off',
       'react-refresh/only-export-components': [
         'warn',
         { allowConstantExport: true },
