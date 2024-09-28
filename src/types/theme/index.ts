@@ -1,3 +1,4 @@
 export * from './color';
-export * from './radius.ts';
-export * from './theme.ts';
+export * from './fonts';
+export * from './radius';
+export * from './theme';

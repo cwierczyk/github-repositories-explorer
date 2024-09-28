@@ -1,4 +1,4 @@
-import { type COLOR_MODES } from '@/const/theme.ts';
+import { type COLOR_MODES } from '@/const/theme';
 
 export interface ColorPalette {
   text: Record<

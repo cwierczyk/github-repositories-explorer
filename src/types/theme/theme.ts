@@ -1,6 +1,7 @@
-import { type ColorPalette, type Radius } from '@/types';
+import { type ColorPalette, type Fonts, type Radius } from '@/types';
 
 export interface CustomTheme {
   colors: ColorPalette;
+  fonts: Fonts;
   radius: Radius;
 }

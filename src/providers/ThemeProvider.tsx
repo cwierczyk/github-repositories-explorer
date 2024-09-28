@@ -46,8 +46,7 @@ export const ThemeProvider: FunctionComponent<Props> = ({ children }) => {
         <Global
           styles={css`
             :root {
-              font-family: Inter, system-ui, Avenir, Helvetica, Arial,
-                sans-serif;
+              font-family: Lato, system-ui, sans-serif;
               font-size: 16px;
               font-weight: 400;
               line-height: 1.5;
