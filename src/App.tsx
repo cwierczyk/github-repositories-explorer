@@ -1,4 +1,4 @@
-import { LanguageButton, ThemeButton } from '@/components';
+import { LanguageButton, ThemeButton, Typography } from '@/components';
 import { ReactQueryProvider, ThemeProvider } from '@/providers';
 
 import '@/i18n';
@@ -9,6 +9,9 @@ function App() {
       <ReactQueryProvider>
         <>
           <h1>App</h1>
+          <Typography tag="h1" size="xl">
+            test
+          </Typography>
           <ThemeButton />
           <LanguageButton />
         </>
