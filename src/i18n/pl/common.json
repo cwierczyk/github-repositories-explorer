@@ -1,0 +1,14 @@
+{
+  "button": {
+    "search": "Szukaj"
+  },
+  "placeholder": {
+    "username": "Wprowadź nazwę użytkownika"
+  },
+  "loading": "Ładowanie...",
+  "language": {
+    "en": "Angielski",
+    "pl": "Polski",
+    "de": "Niemiecki"
+  }
+}
