@@ -8,15 +8,19 @@ export interface ColorPalette {
     | 'white'
     | 'bluePrimary'
     | 'blueSecondary'
-    | 'blueTertiary',
+    | 'blueTertiary'
+    | 'errorPrimary',
     string
   >;
   border: Record<
-    'primary' | 'secondary' | 'tertiary' | 'blue' | 'blueSolid',
+    'primary' | 'secondary' | 'tertiary' | 'blue' | 'blueSolid' | 'error',
     string
   >;
   foreground: Record<'primary' | 'secondary' | 'tertiary', string>;
-  background: Record<'primary' | 'secondary' | 'tertiary', string>;
+  background: Record<
+    'primary' | 'secondary' | 'tertiary' | 'errorPrimary',
+    string
+  >;
   button: Record<
     | 'primaryFg'
     | 'primaryBg'

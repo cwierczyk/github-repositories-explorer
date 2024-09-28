@@ -6,6 +6,7 @@ import {
   AVAILABLE_LANGUAGES,
   DEFAULT_NS,
   FALLBACK_LANGUAGE,
+  isProduction,
   NS,
 } from '@/const';
 import { type LanguageType } from '@/types';
@@ -24,7 +25,7 @@ export default i18n
           ? lng
           : FALLBACK_LANGUAGE,
     },
-    debug: import.meta.env.DEV,
+    debug: !isProduction,
     fallbackLng: FALLBACK_LANGUAGE,
     interpolation: {
       escapeValue: false,

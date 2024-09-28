@@ -1,14 +1,20 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
+import { ErrorBoundary } from 'react-error-boundary';
+
+import { isProduction } from '@/const';
+import { errorFallbackRender } from '@/utils';
 
 import App from './App';
 
 createRoot(document.getElementById('root')!).render(
-  import.meta.env.PROD ? (
-    <App />
-  ) : (
-    <StrictMode>
+  <ErrorBoundary fallbackRender={errorFallbackRender}>
+    {isProduction ? (
       <App />
-    </StrictMode>
-  ),
+    ) : (
+      <StrictMode>
+        <App />
+      </StrictMode>
+    )}
+  </ErrorBoundary>,
 );

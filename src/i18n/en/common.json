@@ -10,5 +10,8 @@
     "en": "English",
     "pl": "Polish",
     "de": "German"
+  },
+  "errorMessage": {
+    "production": "An error occurred. Please try again later."
   }
 }

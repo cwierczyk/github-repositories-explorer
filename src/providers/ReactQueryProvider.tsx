@@ -2,6 +2,7 @@ import { type ReactElement } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 
+import { isProduction } from '@/const';
 import { type FunctionComponent } from '@/types';
 
 interface Props {
@@ -24,6 +25,6 @@ const queryClient = new QueryClient({
 export const ReactQueryProvider: FunctionComponent<Props> = ({ children }) => (
   <QueryClientProvider client={queryClient}>
     {children}
-    {import.meta.env.DEV && <ReactQueryDevtools />}
+    {!isProduction && <ReactQueryDevtools />}
   </QueryClientProvider>
 );
