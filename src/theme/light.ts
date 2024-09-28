@@ -1,6 +1,6 @@
 import { type ColorPalette } from '@/types';
 
-import { base, blue, lightGray as gray } from './colors';
+import { base, blue, error, lightGray as gray } from './colors';
 
 export const themeLight: Record<'colors', ColorPalette> = {
   colors: {
@@ -12,6 +12,7 @@ export const themeLight: Record<'colors', ColorPalette> = {
       bluePrimary: blue['900'],
       blueSecondary: blue['700'],
       blueTertiary: blue['600'],
+      errorPrimary: error['700'],
     },
     border: {
       primary: gray['300'],
@@ -19,6 +20,7 @@ export const themeLight: Record<'colors', ColorPalette> = {
       tertiary: gray['100'],
       blue: blue['300'],
       blueSolid: blue['600'],
+      error: error['300'],
     },
     foreground: {
       primary: gray['900'],
@@ -29,6 +31,7 @@ export const themeLight: Record<'colors', ColorPalette> = {
       primary: base.white,
       secondary: gray['50'],
       tertiary: gray['100'],
+      errorPrimary: error['50'],
     },
     button: {
       primaryFg: base.white,

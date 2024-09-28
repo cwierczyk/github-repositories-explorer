@@ -34,8 +34,8 @@ export const Typography: FunctionComponent<Props> = ({
 
 const DynamicTypography: FunctionComponent<
   Pick<Props, 'tag' | 'className' | 'children'>
-> = ({ tag = 'span', children, ...props }) =>
-  createElement(tag, props, children);
+> = ({ tag = 'span', children, className }) =>
+  createElement(tag, { className }, children);
 
 const StyledDynamicTypography = styled(DynamicTypography)<{
   $size: Size;
