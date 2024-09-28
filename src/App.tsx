@@ -3,6 +3,7 @@ import { ErrorBoundary as NativeErrorBoundary } from 'react-error-boundary';
 import {
   ErrorBoundary,
   LanguageButton,
+  Suspense,
   ThemeButton,
   Typography,
 } from '@/components';
@@ -28,14 +29,16 @@ function App() {
       <ThemeProvider>
         <ErrorBoundary>
           <ReactQueryProvider>
-            <>
-              <h1>App</h1>
-              <Typography tag="h1" size="xl">
-                test
-              </Typography>
-              <ThemeButton />
-              <LanguageButton />
-            </>
+            <Suspense>
+              <>
+                <h1>App</h1>
+                <Typography tag="h1" size="xl">
+                  test
+                </Typography>
+                <ThemeButton />
+                <LanguageButton />
+              </>
+            </Suspense>
           </ReactQueryProvider>
         </ErrorBoundary>
       </ThemeProvider>
