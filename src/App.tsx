@@ -1,8 +1,14 @@
+import { ThemeButton } from '@/components';
+import { ThemeProvider } from '@/providers';
+
 function App() {
   return (
-    <div>
-      <h1>App</h1>
-    </div>
+    <ThemeProvider>
+      <>
+        <h1>App</h1>
+        <ThemeButton />
+      </>
+    </ThemeProvider>
   );
 }
 
