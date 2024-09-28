@@ -1,5 +1,7 @@
-import { ThemeButton } from '@/components';
+import { LanguageButton, ThemeButton } from '@/components';
 import { ThemeProvider } from '@/providers';
+
+import '@/i18n';
 
 function App() {
   return (
@@ -7,6 +9,7 @@ function App() {
       <>
         <h1>App</h1>
         <ThemeButton />
+        <LanguageButton />
       </>
     </ThemeProvider>
   );
