@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 import { type FunctionComponent } from '@/types';
 
 interface Props {
-  children: ReactElement;
+  children: ReactElement | ReactElement[];
 }
 
 export const Container: FunctionComponent<Props> = ({ children }) => (

@@ -5,6 +5,7 @@ import {
   ErrorBoundary,
   Layout,
   Suspense,
+  TextInput,
   Typography,
 } from '@/components';
 import { isProduction } from '@/const';
@@ -35,6 +36,7 @@ function App() {
                   <Typography size="xl" fontWeight="semibold">
                     App feature
                   </Typography>
+                  <TextInput placeholder="Search some user" />
                 </Container>
               </Layout>
             </Suspense>
