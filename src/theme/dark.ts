@@ -39,6 +39,9 @@ export const themeDark: Record<'colors', ColorPalette> = {
       primaryBgHover: blue['700'],
       primaryBorder: blue['600'],
       primaryBorderHover: blue['700'],
+      ghostFg: blue['300'],
+      ghostFgHover: blue['100'],
+      ghostBgHover: blue['800'],
     },
   },
 } as const;
