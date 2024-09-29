@@ -1,23 +1,24 @@
-import { type MouseEvent, type ReactElement } from 'react';
+import { forwardRef, type MouseEvent, type ReactElement } from 'react';
 import styled from '@emotion/styled';
-
-import { type FunctionComponent } from '@/types';
 
 export interface BaseButtonProps {
   className?: string;
   onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
   type?: 'button' | 'submit' | 'reset';
+  ariaExpanded?: boolean;
+  ariaControls?: string;
+  ariaHaspopup?: boolean;
   children: string | ReactElement;
 }
 
-export const BaseButton: FunctionComponent<BaseButtonProps> = ({
-  children,
-  type = 'button',
-  ...props
-}) => (
-  <StyledButton type={type} {...props}>
-    {children}
-  </StyledButton>
+export const BaseButton = forwardRef<HTMLButtonElement, BaseButtonProps>(
+  function BaseButton({ children, type = 'button', ...props }, ref) {
+    return (
+      <StyledButton {...props} type={type} ref={ref}>
+        {children}
+      </StyledButton>
+    );
+  },
 );
 
 const StyledButton = styled.button`
