@@ -18,7 +18,7 @@ export interface ColorPalette {
   >;
   foreground: Record<'primary' | 'secondary' | 'tertiary', string>;
   background: Record<
-    'primary' | 'secondary' | 'tertiary' | 'errorPrimary',
+    'primary' | 'secondary' | 'tertiary' | 'blueSolid' | 'errorPrimary',
     string
   >;
   button: Record<
