@@ -19,4 +19,10 @@ const StyledBaseButton = styled(BaseButton)`
     background: ${({ theme }) => theme.colors.button.primaryBgHover};
     border-color: ${({ theme }) => theme.colors.button.primaryBorderHover};
   }
+
+  &:disabled {
+    border-color: ${({ theme }) => theme.colors.border.disabled};
+    background: ${({ theme }) => theme.colors.background.disabled};
+    color: ${({ theme }) => theme.colors.text.disabled};
+  }
 `;

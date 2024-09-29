@@ -1,3 +1,5 @@
 {
-  "listDescription": "Showing users for '{{ username }}'"
+  "userListDescription": "Showing users for '{{ username }}'",
+  "userListNotFound": "No users found for '{{ username }}'",
+  "repositoryListNotFound": "No repositories found"
 }

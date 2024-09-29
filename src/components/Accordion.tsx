@@ -2,17 +2,15 @@ import {
   type KeyboardEvent,
   type MouseEvent,
   type ReactElement,
-  useEffect,
   useId,
-  useRef,
-  useState,
 } from 'react';
 import styled from '@emotion/styled';
 
 import { ChevronDownIcon } from '@/assets/icons';
-import { Icon } from '@/components/Icon';
-import { Typography } from '@/components/Typography';
 import { type FunctionComponent } from '@/types';
+
+import { Icon } from './Icon';
+import { Typography } from './Typography';
 
 interface Props {
   open: boolean;
@@ -30,16 +28,9 @@ export const Accordion: FunctionComponent<Props> = ({
   onExpand,
 }) => {
   const id = useId();
-  const contentRef = useRef<HTMLDivElement | null>(null);
-  const [maxHeight, setMaxHeight] = useState(0);
 
   const headerId = `accordion-header-${id}`;
   const contentId = `accordion-content-${id}`;
-
-  useEffect(() => {
-    if (maxHeight) return;
-    setMaxHeight(contentRef.current?.scrollHeight ?? 0);
-  }, [maxHeight, open]);
 
   return (
     <Container>
@@ -59,12 +50,10 @@ export const Accordion: FunctionComponent<Props> = ({
         <StyledIcon icon={ChevronDownIcon} $open={open} />
       </Header>
       <Content
-        ref={contentRef}
         id={contentId}
         role="region"
         aria-labelledby={headerId}
         $open={open}
-        $maxHeight={`${maxHeight}px`}
       >
         {open && content}
       </Content>
@@ -103,8 +92,8 @@ const StyledIcon = styled(Icon)<{ $open: boolean }>`
   rotate: ${({ $open }) => ($open ? '180deg' : '0')};
 `;
 
-const Content = styled.div<{ $open: boolean; $maxHeight: string }>`
-  max-height: ${({ $open, $maxHeight }) => ($open ? $maxHeight : '0')};
-  overflow: hidden;
+const Content = styled.div<{ $open: boolean }>`
+  max-height: ${({ $open }) => ($open ? 'max-content' : '0')};
+  overflow: auto;
   transition: 0.25s max-height ease-in-out;
 `;
