@@ -17,7 +17,7 @@ export const SearchField: FunctionComponent<Props> = ({
   const [inputValue, setInputValue] = useState('');
   const { t } = useTranslation('common');
 
-  const isSubmitDisabled = inputValue.length < 3 || isLoading;
+  const isSubmitDisabled = inputValue.length < 1 || isLoading;
 
   return (
     <Container>
