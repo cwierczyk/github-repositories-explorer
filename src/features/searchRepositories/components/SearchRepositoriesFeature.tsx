@@ -15,7 +15,7 @@ export function SearchRepositoriesFeature() {
     <Container>
       <SearchField onSubmitSearch={setQuery} isLoading={!!isFetching} />
       <ErrorBoundary>
-        <Suspense>{query.length > 3 && <UserList query={query} />}</Suspense>
+        <Suspense>{!!query.length && <UserList query={query} />}</Suspense>
       </ErrorBoundary>
     </Container>
   );
