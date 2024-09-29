@@ -3,6 +3,7 @@ export * from './ClickAwayListener';
 export * from './ErrorBoundary';
 export * from './input';
 export * from './LanguageSelector';
+export * from './layout';
 export * from './Menu';
 export * from './Suspense';
 export * from './ThemeSwitch';

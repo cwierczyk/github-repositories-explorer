@@ -1,13 +1,10 @@
 import { ErrorBoundary as NativeErrorBoundary } from 'react-error-boundary';
 
 import {
-  BaseButton,
+  Container,
   ErrorBoundary,
-  GhostButton,
-  LanguageSelector,
-  PrimaryButton,
+  Layout,
   Suspense,
-  ThemeSwitch,
   Typography,
 } from '@/components';
 import { isProduction } from '@/const';
@@ -30,23 +27,19 @@ function App() {
       }
     >
       <ThemeProvider>
-        <ErrorBoundary>
-          <ReactQueryProvider>
+        <ReactQueryProvider>
+          <ErrorBoundary>
             <Suspense>
-              <>
-                <h1>App</h1>
-                <Typography tag="h1" size="xl">
-                  test
-                </Typography>
-                <BaseButton>testy</BaseButton>
-                <PrimaryButton>Search users</PrimaryButton>
-                <GhostButton>Polish language</GhostButton>
-                <LanguageSelector />
-                <ThemeSwitch />
-              </>
+              <Layout>
+                <Container>
+                  <Typography size="xl" fontWeight="semibold">
+                    App feature
+                  </Typography>
+                </Container>
+              </Layout>
             </Suspense>
-          </ReactQueryProvider>
-        </ErrorBoundary>
+          </ErrorBoundary>
+        </ReactQueryProvider>
       </ThemeProvider>
     </NativeErrorBoundary>
   );
