@@ -4,7 +4,7 @@ import {
   BaseButton,
   ErrorBoundary,
   GhostButton,
-  LanguageButton,
+  LanguageSelector,
   PrimaryButton,
   Suspense,
   ThemeButton,
@@ -39,10 +39,10 @@ function App() {
                   test
                 </Typography>
                 <ThemeButton />
-                <LanguageButton />
                 <BaseButton>testy</BaseButton>
                 <PrimaryButton>Search users</PrimaryButton>
                 <GhostButton>Polish language</GhostButton>
+                <LanguageSelector />
               </>
             </Suspense>
           </ReactQueryProvider>
