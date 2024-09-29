@@ -56,4 +56,5 @@ const Row = styled.div`
   display: flex;
   align-items: center;
   gap: ${({ theme }) => theme.spacing.md};
+  min-width: 100px;
 `;
