@@ -6,6 +6,8 @@ export interface ColorPalette {
     | 'secondary'
     | 'tertiary'
     | 'white'
+    | 'placeholder'
+    | 'disabled'
     | 'bluePrimary'
     | 'blueSecondary'
     | 'blueTertiary'
@@ -13,12 +15,23 @@ export interface ColorPalette {
     string
   >;
   border: Record<
-    'primary' | 'secondary' | 'tertiary' | 'blue' | 'blueSolid' | 'error',
+    | 'primary'
+    | 'secondary'
+    | 'tertiary'
+    | 'disabled'
+    | 'blue'
+    | 'blueSolid'
+    | 'error',
     string
   >;
   foreground: Record<'primary' | 'secondary' | 'tertiary', string>;
   background: Record<
-    'primary' | 'secondary' | 'tertiary' | 'blueSolid' | 'errorPrimary',
+    | 'primary'
+    | 'secondary'
+    | 'tertiary'
+    | 'disabled'
+    | 'blueSolid'
+    | 'errorPrimary',
     string
   >;
   button: Record<
