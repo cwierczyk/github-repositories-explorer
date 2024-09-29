@@ -1,34 +1,29 @@
 import styled from '@emotion/styled';
 
 import { StarFillIcon } from '@/assets/icons';
+import { Icon, Typography } from '@/components';
+import { type GithubUserRepository } from '@/features/searchRepositories';
 import { type FunctionComponent } from '@/types';
 
-import { Icon } from './Icon';
-import { Typography } from './Typography';
-
 interface Props {
-  title: string;
-  description: string;
-  follows: number;
+  repo: GithubUserRepository;
 }
 
-export const UserRepository: FunctionComponent<Props> = ({
-  title,
-  description,
-  follows,
-}) => (
+export const RepositoryItem: FunctionComponent<Props> = ({ repo }) => (
   <Container>
     <div>
       <Typography size="lg" fontWeight="semibold">
-        {title}
+        {repo.name}
       </Typography>
-      <Typography tag="p" color="tertiary">
-        {description}
-      </Typography>
+      {repo.description && (
+        <Typography tag="p" color="tertiary">
+          {repo.description}
+        </Typography>
+      )}
     </div>
     <Row>
       <Typography size="xl" fontWeight="bold">
-        {follows.toString()}
+        {repo.stargazersCount.toString()}
       </Typography>
       <Icon icon={StarFillIcon} size="1.25rem" />
     </Row>

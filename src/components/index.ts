@@ -10,4 +10,3 @@ export * from './Menu';
 export * from './Suspense';
 export * from './ThemeSwitch';
 export * from './Typography';
-export * from './UserRepository';

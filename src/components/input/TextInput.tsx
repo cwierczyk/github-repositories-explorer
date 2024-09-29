@@ -1,4 +1,4 @@
-import { type ChangeEvent } from 'react';
+import { type ChangeEvent, type KeyboardEvent } from 'react';
 import styled from '@emotion/styled';
 
 import { type FunctionComponent } from '@/types';
@@ -7,14 +7,22 @@ interface Props {
   value?: string;
   onChange?: (event: ChangeEvent<HTMLInputElement>, value: string) => void;
   placeholder?: string;
+  disabled?: boolean;
+  onKeyDown?: (event: KeyboardEvent<HTMLInputElement>) => void;
 }
 
-export const TextInput: FunctionComponent<Props> = ({ onChange, ...props }) => {
+export const TextInput: FunctionComponent<Props> = ({
+  onChange,
+  disabled,
+  ...props
+}) => {
   return (
     <StyledInput
+      {...props}
       type="text"
       onChange={(event) => onChange?.(event, event.target.value)}
-      {...props}
+      aria-disabled={disabled}
+      disabled={disabled}
     />
   );
 };
