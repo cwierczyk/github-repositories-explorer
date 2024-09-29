@@ -31,6 +31,7 @@ export const themeLight: Record<'colors', ColorPalette> = {
       primary: base.white,
       secondary: gray['50'],
       tertiary: gray['100'],
+      blueSolid: blue['600'],
       errorPrimary: error['50'],
     },
     button: {

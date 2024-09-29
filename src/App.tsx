@@ -7,7 +7,7 @@ import {
   LanguageSelector,
   PrimaryButton,
   Suspense,
-  ThemeButton,
+  ThemeSwitch,
   Typography,
 } from '@/components';
 import { isProduction } from '@/const';
@@ -38,11 +38,11 @@ function App() {
                 <Typography tag="h1" size="xl">
                   test
                 </Typography>
-                <ThemeButton />
                 <BaseButton>testy</BaseButton>
                 <PrimaryButton>Search users</PrimaryButton>
                 <GhostButton>Polish language</GhostButton>
                 <LanguageSelector />
+                <ThemeSwitch />
               </>
             </Suspense>
           </ReactQueryProvider>

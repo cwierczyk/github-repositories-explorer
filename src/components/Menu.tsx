@@ -86,6 +86,7 @@ const Container = styled.ul`
   padding: ${({ theme }) => `${theme.spacing.sm} 0`};
   border-radius: ${({ theme }) => theme.radius.sm};
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  z-index: 1;
 `;
 
 const ListItem = styled.li`

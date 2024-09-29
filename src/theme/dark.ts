@@ -31,6 +31,7 @@ export const themeDark: Record<'colors', ColorPalette> = {
       primary: gray['950'],
       secondary: gray['900'],
       tertiary: gray['800'],
+      blueSolid: blue['600'],
       errorPrimary: error['800'],
     },
     button: {

@@ -3,4 +3,5 @@ export const radius = {
   md: '8px',
   lg: '10px',
   xl: '12px',
+  full: '9999px',
 } as const;
