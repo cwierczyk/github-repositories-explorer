@@ -1,3 +1,4 @@
+export * from './Accordion';
 export * from './button';
 export * from './ClickAwayListener';
 export * from './ErrorBoundary';
