@@ -15,6 +15,7 @@ interface Props {
   color?: Color;
   tag?: keyof ReactHTML;
   className?: string;
+  inherit?: boolean;
   children: string;
 }
 
@@ -22,6 +23,7 @@ export const Typography: FunctionComponent<Props> = ({
   size = 'md',
   fontWeight = 'regular',
   color = 'primary',
+  inherit = false,
   ...props
 }) => (
   <StyledDynamicTypography
@@ -29,6 +31,7 @@ export const Typography: FunctionComponent<Props> = ({
     $size={size}
     $fontWeight={fontWeight}
     $color={color}
+    $inherit={inherit}
   />
 );
 
@@ -41,9 +44,14 @@ const StyledDynamicTypography = styled(DynamicTypography)<{
   $size: Size;
   $fontWeight: Weight;
   $color: Color;
+  $inherit: boolean;
 }>`
-  font-size: ${({ $size, theme }) => theme.fonts.size[$size]};
-  line-height: ${({ $size, theme }) => theme.fonts.lineHeight[$size]};
-  font-weight: ${({ $fontWeight, theme }) => theme.fonts.weight[$fontWeight]};
-  color: ${({ $color, theme }) => theme.colors.text[$color]};
+  font-size: ${({ $size, theme, $inherit }) =>
+    $inherit ? 'inherit' : theme.fonts.size[$size]};
+  line-height: ${({ $size, theme, $inherit }) =>
+    $inherit ? 'inherit' : theme.fonts.lineHeight[$size]};
+  font-weight: ${({ $fontWeight, theme, $inherit }) =>
+    $inherit ? 'inherit' : theme.fonts.weight[$fontWeight]};
+  color: ${({ $color, theme, $inherit }) =>
+    $inherit ? 'inherit' : theme.colors.text[$color]};
 `;

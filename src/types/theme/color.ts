@@ -26,7 +26,10 @@ export interface ColorPalette {
     | 'primaryBg'
     | 'primaryBgHover'
     | 'primaryBorder'
-    | 'primaryBorderHover',
+    | 'primaryBorderHover'
+    | 'ghostFg'
+    | 'ghostFgHover'
+    | 'ghostBgHover',
     string
   >;
 }

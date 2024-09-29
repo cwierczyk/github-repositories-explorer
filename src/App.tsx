@@ -1,8 +1,11 @@
 import { ErrorBoundary as NativeErrorBoundary } from 'react-error-boundary';
 
 import {
+  BaseButton,
   ErrorBoundary,
+  GhostButton,
   LanguageButton,
+  PrimaryButton,
   Suspense,
   ThemeButton,
   Typography,
@@ -37,6 +40,9 @@ function App() {
                 </Typography>
                 <ThemeButton />
                 <LanguageButton />
+                <BaseButton>testy</BaseButton>
+                <PrimaryButton>Search users</PrimaryButton>
+                <GhostButton>Polish language</GhostButton>
               </>
             </Suspense>
           </ReactQueryProvider>
