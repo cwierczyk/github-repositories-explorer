@@ -14,3 +14,8 @@ export interface GithubUserRepositoryDto {
   description: string | null;
   stargazers_count: number;
 }
+
+export interface InfiniteQueryGithubUserRepositoriesParamsDto {
+  page: number;
+  per_page: number;
+}

@@ -81,6 +81,7 @@ const Header = styled.button`
   font-weight: ${({ theme }) => theme.fonts.weight.semibold};
   color: ${({ theme }) => theme.colors.text.primary};
   cursor: pointer;
+  text-align: left;
 
   &:hover {
     background: ${({ theme }) => theme.colors.button.ghostBgHover};

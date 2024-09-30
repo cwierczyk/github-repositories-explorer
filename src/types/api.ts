@@ -16,4 +16,9 @@ export type PayloadRequest<Return, Payload> = (
   config?: AxiosRequestConfig,
 ) => Promise<Return>;
 
-export type ApiError = AxiosError;
+interface ErrorResponse {
+  message: string;
+  status: number;
+}
+
+export type ApiError = AxiosError<ErrorResponse>;

@@ -1,2 +1,2 @@
-export * from './useQueryGithubUserRepositories';
-export * from './useQueryGithubUsers';
+export * from './useInfiniteQueryGithubUserRepositories';
+export * from './useQuerySearchGithubUsers';

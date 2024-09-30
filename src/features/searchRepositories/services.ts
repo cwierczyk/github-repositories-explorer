@@ -5,8 +5,10 @@ import { GITHUB_API_ENDPOINTS } from './const';
 import {
   type GithubListResponseDto,
   type GithubUser,
-  type GithubUserRepository,
   type GithubUserRepositoryDto,
+  type InfiniteQueryGithubUserRepositoriesParamsDto,
+  type InfiniteQueryGithubUserRepositoriesPayload,
+  type PaginatedGithubUserRepositories,
   type QuerySearchUsersParams,
   type QuerySearchUsersParamsDto,
 } from './types';
@@ -29,16 +31,26 @@ export const getSearchUsers: Request<
 };
 
 export const getUserRepositories: Request<
-  GithubUserRepository[],
-  string
-> = async (username) => {
-  const { data } = await getRequest<GithubUserRepositoryDto[]>(
-    GITHUB_API_ENDPOINTS.getUserRepos(username),
-  );
+  PaginatedGithubUserRepositories,
+  InfiniteQueryGithubUserRepositoriesPayload
+> = async ({ username, perPage, page }) => {
+  const { headers, data } = await getRequest<
+    GithubUserRepositoryDto[],
+    InfiniteQueryGithubUserRepositoriesParamsDto
+  >(GITHUB_API_ENDPOINTS.getUserRepositories(username), {
+    page: page,
+    per_page: perPage,
+  });
 
-  return data.map((item) => ({
-    name: item.name,
-    description: item.description,
-    stargazersCount: item.stargazers_count,
-  }));
+  const linkHeader = headers['link'] as string | undefined;
+  const hasNextPage = !!linkHeader?.includes('rel="next"');
+
+  return {
+    nextPage: hasNextPage ? page + 1 : null,
+    repositories: data.map((item) => ({
+      name: item.name,
+      description: item.description,
+      stargazersCount: item.stargazers_count,
+    })),
+  };
 };
