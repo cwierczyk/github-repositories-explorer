@@ -54,5 +54,4 @@ const StyledDynamicTypography = styled(DynamicTypography)<{
     $inherit ? 'inherit' : theme.fonts.weight[$fontWeight]};
   color: ${({ $color, theme, $inherit }) =>
     $inherit ? 'inherit' : theme.colors.text[$color]};
-  line-break: anywhere;
 `;
