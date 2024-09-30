@@ -12,3 +12,8 @@ export interface GithubUserRepository {
   description: string | null;
   stargazersCount: number;
 }
+
+export interface PaginatedGithubUserRepositories {
+  repositories: GithubUserRepository[];
+  nextPage: number | null;
+}

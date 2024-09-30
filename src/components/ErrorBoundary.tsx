@@ -8,6 +8,7 @@ import styled from '@emotion/styled';
 import { isProduction } from '@/const';
 import { useTranslation } from '@/hooks';
 import { type FunctionComponent } from '@/types';
+import { getApiErrorMessage } from '@/utils';
 
 import { Typography } from './Typography';
 
@@ -27,7 +28,9 @@ const FallbackComponent: FunctionComponent<FallbackProps> = ({ error }) => {
   return (
     <Container>
       <Typography color="errorPrimary">
-        {isProduction ? t('errorMessage.production') : String(error)}
+        {isProduction
+          ? t('errorMessage.production')
+          : (getApiErrorMessage(error) ?? String(error))}
       </Typography>
     </Container>
   );

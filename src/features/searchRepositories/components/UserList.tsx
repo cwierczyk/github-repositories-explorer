@@ -2,7 +2,7 @@ import { useState } from 'react';
 import styled from '@emotion/styled';
 
 import { Accordion, ErrorBoundary, Suspense, Typography } from '@/components';
-import { useQueryGithubUsers } from '@/features/searchRepositories';
+import { useQuerySearchGithubUsers } from '@/features/searchRepositories';
 import { useTranslation } from '@/hooks';
 import { type FunctionComponent } from '@/types';
 
@@ -15,13 +15,13 @@ interface Props {
 const PER_PAGE = 5;
 
 export const UserList: FunctionComponent<Props> = ({ query }) => {
-  const { users } = useQueryGithubUsers({ q: query, perPage: PER_PAGE });
+  const { users } = useQuerySearchGithubUsers({ q: query, perPage: PER_PAGE });
   const [expanded, setExpanded] = useState<string | null>(null);
   const { t } = useTranslation('githubUserRepositories');
 
   return (
     <Container>
-      <Typography color="secondary">
+      <Typography color="secondary" tag="p">
         {t(users.length ? 'userListDescription' : 'userListNotFound', {
           username: query,
         })}

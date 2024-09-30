@@ -1,7 +1,8 @@
+import { useCallback, useRef } from 'react';
 import styled from '@emotion/styled';
 
-import { Typography } from '@/components';
-import { useQueryGithubUserRepositories } from '@/features/searchRepositories';
+import { Loader, Typography } from '@/components';
+import { useInfiniteQueryGithubUserRepositories } from '@/features/searchRepositories';
 import { useTranslation } from '@/hooks';
 import { type FunctionComponent } from '@/types';
 
@@ -12,8 +13,28 @@ interface Props {
 }
 
 export const RepositoryList: FunctionComponent<Props> = ({ username }) => {
-  const { repositories } = useQueryGithubUserRepositories(username);
+  const { repositories, isFetchingNextPage, hasNextPage, fetchNextPage } =
+    useInfiniteQueryGithubUserRepositories(username);
   const { t } = useTranslation('githubUserRepositories');
+  const containerObserver = useRef<IntersectionObserver | null>(null);
+
+  const lastRepoElementRef = useCallback(
+    (node: HTMLDivElement) => {
+      if (isFetchingNextPage) return;
+      if (containerObserver.current) containerObserver.current.disconnect();
+
+      containerObserver.current = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting && hasNextPage) {
+          fetchNextPage().catch(() => {
+            throw new Error('Failed to fetch next page');
+          });
+        }
+      });
+
+      if (node) containerObserver.current.observe(node);
+    },
+    [isFetchingNextPage, hasNextPage, fetchNextPage],
+  );
 
   if (!repositories.length)
     return (
@@ -24,9 +45,17 @@ export const RepositoryList: FunctionComponent<Props> = ({ username }) => {
 
   return (
     <Container>
-      {repositories.map((repo) => (
-        <RepositoryItem key={repo.name} repo={repo} />
+      {repositories.map((repo, index) => (
+        <div
+          key={repo.name}
+          ref={
+            repositories.length === index + 1 ? lastRepoElementRef : undefined
+          }
+        >
+          <RepositoryItem key={repo.name} repo={repo} />
+        </div>
       ))}
+      {isFetchingNextPage && <Loader />}
     </Container>
   );
 };

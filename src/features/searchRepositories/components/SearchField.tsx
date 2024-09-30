@@ -35,7 +35,7 @@ export const SearchField: FunctionComponent<Props> = ({
         onClick={() => onSubmitSearch(inputValue)}
         disabled={isSubmitDisabled}
       >
-        {t('button.search')}
+        {t(isLoading ? 'loading' : 'button.search')}
       </PrimaryButton>
     </Container>
   );
