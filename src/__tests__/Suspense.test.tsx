@@ -47,6 +47,6 @@ describe('Suspense component', () => {
       </Suspense>,
     );
 
-    expect(getByText(/custom loading.../i)).toBeInTheDocument();
+    expect(getByText('Custom Loading...')).toBeInTheDocument();
   });
 });

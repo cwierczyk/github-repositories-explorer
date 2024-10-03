@@ -72,7 +72,7 @@ describe('Accordion Component', () => {
       />,
     );
 
-    const header = getByRole('button', { name: 'Test Accordion' });
+    const header = getByRole('button', { name: /test accordion/i });
 
     fireEvent.keyDown(header, { key: 'Enter', code: 'Enter' });
 
@@ -89,7 +89,7 @@ describe('Accordion Component', () => {
       />,
     );
 
-    const header = getByRole('button', { name: 'Test Accordion' });
+    const header = getByRole('button', { name: /test accordion/i });
 
     fireEvent.keyDown(header, { key: ' ', code: 'Space' });
 

@@ -23,9 +23,11 @@ describe('SearchField component', () => {
       <SearchField onSubmitSearch={mockOnSubmitSearch} isLoading={false} />,
     );
 
-    expect(getByPlaceholderText('placeholder.username')).toBeInTheDocument();
+    const input = getByPlaceholderText('placeholder.username');
+    const button = getByRole('button', { name: 'button.search' });
 
-    expect(getByRole('button', { name: 'button.search' })).toBeInTheDocument();
+    expect(input).toBeInTheDocument();
+    expect(button).toBeInTheDocument();
   });
 
   it('disables the submit button when input is empty', () => {
@@ -57,9 +59,10 @@ describe('SearchField component', () => {
     );
 
     const input = getByPlaceholderText('placeholder.username');
+    const button = getByRole('button', { name: 'button.search' });
 
     fireEvent.change(input, { target: { value: 'testuser' } });
-    fireEvent.click(getByRole('button', { name: 'button.search' }));
+    fireEvent.click(button);
 
     expect(mockOnSubmitSearch).toHaveBeenCalledWith('testuser');
   });
