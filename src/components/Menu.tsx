@@ -39,7 +39,10 @@ export const Menu: FunctionComponent<Props> = ({
 
   return (
     <ClickAwayListener onClickAway={closeMenu}>
-      <div onKeyDown={(event) => event.key === 'Escape' && closeMenu()}>
+      <div
+        onKeyDown={(event) => event.key === 'Escape' && closeMenu()}
+        data-testid="key-listener"
+      >
         <trigger.type
           {...trigger.props}
           onClick={(event: MouseEvent<HTMLButtonElement>) => {
