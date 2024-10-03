@@ -1,7 +1,7 @@
 import { type ReactElement, type ReactNode } from 'react';
 import { render, type RenderOptions } from '@testing-library/react';
 
-import { ThemeProvider } from '@/providers';
+import { ReactQueryProvider, ThemeProvider } from '@/providers';
 import { type FunctionComponent } from '@/types';
 
 interface Props {
@@ -9,7 +9,9 @@ interface Props {
 }
 
 const AllTheProviders: FunctionComponent<Props> = ({ children }) => (
-  <ThemeProvider>{children}</ThemeProvider>
+  <ThemeProvider>
+    <ReactQueryProvider>{children}</ReactQueryProvider>
+  </ThemeProvider>
 );
 
 const customRender = (ui: ReactElement, options: RenderOptions = {}) =>
