@@ -14,7 +14,9 @@ export const Icon: FunctionComponent<Props> = ({
   size = '1.5rem',
   color = 'currentColor',
   ...props
-}) => <StyledIcon {...props} $size={size} $icon={icon} $color={color} />;
+}) => (
+  <StyledIcon {...props} role="img" $size={size} $icon={icon} $color={color} />
+);
 
 const StyledIcon = styled.span<{
   $size: string;
