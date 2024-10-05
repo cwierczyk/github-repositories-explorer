@@ -10,7 +10,7 @@ interface Props {
 }
 
 export const RepositoryItem: FunctionComponent<Props> = ({ repo }) => (
-  <Container>
+  <Container data-testid="repository-container">
     <div>
       <Typography size="lg" fontWeight="semibold">
         {repo.name}

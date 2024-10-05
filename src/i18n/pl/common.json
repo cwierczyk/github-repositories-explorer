@@ -13,5 +13,8 @@
   },
   "errorMessage": {
     "production": "Wystąpił błąd. Spróbuj ponownie później."
+  },
+  "label": {
+    "languageSelection": "Wybór języka"
   }
 }

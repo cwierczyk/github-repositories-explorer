@@ -33,7 +33,7 @@ export const Accordion: FunctionComponent<Props> = ({
   const contentId = `accordion-content-${id}`;
 
   return (
-    <Container>
+    <Container data-testid="accordion-container">
       <Header
         onClick={onExpand}
         aria-expanded={open}

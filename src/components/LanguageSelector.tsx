@@ -43,6 +43,7 @@ export const LanguageSelector: FunctionComponent = () => {
             throw new Error('Failed to change language');
           }),
       }))}
+      ariaLabel={t('label.languageSelection')}
     />
   );
 };

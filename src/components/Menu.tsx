@@ -21,21 +21,25 @@ interface Props {
     startIcon?: ReactElement;
   }[];
   ariaLabel?: string;
+  id?: string;
 }
 
 export const Menu: FunctionComponent<Props> = ({
   items,
   trigger,
   ariaLabel,
+  id,
 }) => {
   const buttonRef = useRef<HTMLButtonElement>(null);
   const [isOpen, setIsOpen] = useState(false);
-  const id = useId();
+  const hookId = useId();
 
   const closeMenu = () => {
     buttonRef.current?.focus();
     setIsOpen(false);
   };
+
+  const menuId = id ?? `menu-${hookId}`;
 
   return (
     <ClickAwayListener onClickAway={closeMenu}>
@@ -51,11 +55,12 @@ export const Menu: FunctionComponent<Props> = ({
           }}
           ariaExpanded={isOpen}
           ariaHaspopup
-          ariaControls={id}
+          ariaControls={menuId}
           ref={buttonRef}
+          data-testid="language-menu-trigger"
         />
         {isOpen && (
-          <Container id={id} role="menu" aria-label={ariaLabel}>
+          <Container id={menuId} role="menu" aria-label={ariaLabel}>
             {items.map(({ label, onClick, startIcon }, index) => (
               <ListItem key={index.toString()} role="menuitem">
                 <ListItemButton

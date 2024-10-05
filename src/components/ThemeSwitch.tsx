@@ -9,7 +9,7 @@ export const ThemeSwitch: FunctionComponent = () => {
   const { mode, changeMode } = useTheme();
 
   return (
-    <Label>
+    <Label data-testid="theme-switch-label">
       <Emoji>🌞</Emoji>
       <SwitchInput
         checked={mode === 'dark'}
