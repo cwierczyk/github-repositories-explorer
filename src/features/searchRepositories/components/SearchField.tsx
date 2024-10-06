@@ -30,10 +30,12 @@ export const SearchField: FunctionComponent<Props> = ({
 
           if (event.key === 'Enter') onSubmitSearch(inputValue);
         }}
+        ariaControls="search-users"
       />
       <PrimaryButton
         onClick={() => onSubmitSearch(inputValue)}
         disabled={isSubmitDisabled}
+        ariaControls="search-users"
       >
         {t(isLoading ? 'loading' : 'button.search')}
       </PrimaryButton>

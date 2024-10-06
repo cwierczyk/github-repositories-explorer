@@ -1,4 +1,4 @@
-import { type ReactElement, useState } from 'react';
+import { type ReactNode, useState } from 'react';
 import {
   css,
   Global,
@@ -13,7 +13,7 @@ import { darkTheme, lightTheme } from '@/theme';
 import { type ColorMode, type FunctionComponent } from '@/types';
 
 interface Props {
-  children: ReactElement;
+  children: ReactNode;
 }
 
 const THEMES: Record<ColorMode, Theme> = {

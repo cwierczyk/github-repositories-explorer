@@ -13,11 +13,25 @@ export interface BaseButtonProps {
 }
 
 export const BaseButton = forwardRef<HTMLButtonElement, BaseButtonProps>(
-  function BaseButton({ children, type = 'button', disabled, ...props }, ref) {
+  function BaseButton(
+    {
+      children,
+      type = 'button',
+      disabled,
+      ariaExpanded,
+      ariaHaspopup,
+      ariaControls,
+      ...props
+    },
+    ref,
+  ) {
     return (
       <StyledButton
         {...props}
         aria-disabled={disabled}
+        aria-expanded={ariaExpanded}
+        aria-haspopup={ariaHaspopup}
+        aria-controls={ariaControls}
         disabled={disabled}
         type={type}
         ref={ref}

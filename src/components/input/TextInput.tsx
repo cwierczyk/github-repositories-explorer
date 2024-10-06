@@ -9,11 +9,13 @@ interface Props {
   placeholder?: string;
   disabled?: boolean;
   onKeyDown?: (event: KeyboardEvent<HTMLInputElement>) => void;
+  ariaControls?: string;
 }
 
 export const TextInput: FunctionComponent<Props> = ({
   onChange,
   disabled,
+  ariaControls,
   ...props
 }) => {
   return (
@@ -22,6 +24,7 @@ export const TextInput: FunctionComponent<Props> = ({
       type="text"
       onChange={(event) => onChange?.(event, event.target.value)}
       aria-disabled={disabled}
+      aria-controls={ariaControls}
       disabled={disabled}
     />
   );

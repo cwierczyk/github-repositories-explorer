@@ -17,6 +17,7 @@ export const SwitchInput: FunctionComponent<Props> = ({
   <Label>
     <SwitchCheckbox
       type="checkbox"
+      role="switch"
       checked={checked}
       onChange={(event) => onChange?.(event, event.target.checked)}
       aria-label={ariaLabel}

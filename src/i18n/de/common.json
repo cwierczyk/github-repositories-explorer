@@ -13,5 +13,8 @@
   },
   "errorMessage": {
     "production": "Es ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut."
+  },
+  "label": {
+    "languageSelection": "Sprachauswahl"
   }
 }

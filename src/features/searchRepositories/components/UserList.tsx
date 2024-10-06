@@ -20,7 +20,7 @@ export const UserList: FunctionComponent<Props> = ({ query }) => {
   const { t } = useTranslation('githubUserRepositories');
 
   return (
-    <Container>
+    <Container id="search-users">
       <Typography color="secondary" tag="p">
         {t(users.length ? 'userListDescription' : 'userListNotFound', {
           username: query,
